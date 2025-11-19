@@ -12,19 +12,8 @@ const isAuthenticate = require('./middlewares/authenticate');
 let server;
 mongoose.connect(process.env.MONGO_URI).then (()=> {
 
-app.use(bodyParser.urlencoded({ extended: true, limit: '10mb'}));
-app.use(bodyParser.json({ limit: '10mb'}));
-
-// const unless = (path, middleware) => (req, res, next) => {
-//     if (path.includes(req.path)) {
-//       return next();
-//     }
-//     return middleware(req, res, next);
-//   };
-
-  // by pass Authentication for APIs
-//   app.use(unless(['/api/auth/regiester', '/api/auth/login'],
-//   isAuthenticated));
+  app.use(bodyParser.urlencoded({ extended: true, limit: '10mb'}));
+  pp.use(bodyParser.json({ limit: '10mb'}));
 
   app.use('/api/user/', userRoutes);
   app.use('/api/admin/', adminRoute);
